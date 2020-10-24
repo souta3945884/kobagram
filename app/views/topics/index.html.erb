@@ -1,0 +1,9 @@
+<div class="main topics-index">
+  <div class="container">
+    <% @topics.each do |topic| %>
+      <div class="topics-index-item">
+        <%= link_to(topic.description, "/topics/#{topic.user_id}") %>
+      </div>
+    <% end %>
+  </div>
+</div>
