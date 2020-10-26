@@ -7,6 +7,10 @@
       <div class="topic-time">
         <%= @topic.created_at %>
       </div>
+      <div class="topic-menus">
+        <%= link_to("編集", "/topics/#{@topic.id}/edit") %>
+        <%= link_to("削除", "/topics/#{@topic.id}/destroy", {method: "post"}) %>
+      </div>
     </div>
   </div>
 </div>
