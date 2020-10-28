@@ -2,7 +2,15 @@
   <div class="container">
     <% @topics.each do |topic| %>
       <div class="topics-index-item">
+        <div class="topic-left">
+          <img src="<%= "/user_images/#{topic.user.image_name}" %>">
+        </div>
+        <div class="topic-right">
+          <div class="topic-user-name">
+            <%= link_to(topic.user.name, "/users/#{topic.user.id}") %>
+          </div>
         <%= link_to(topic.description, "/topics/#{topic.id}") %>
+        </div>
       </div>
     <% end %>
   </div>

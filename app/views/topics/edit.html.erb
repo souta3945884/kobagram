@@ -4,6 +4,11 @@
     <%= form_tag("/topics/#{@topic.id}/update") do %>
       <div class="form">
         <div class="form-body">
+          <% @topic.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
           <textarea name="description"><%= @topic.description %></textarea>
           <input type="submit" value="保存">
         </div>
