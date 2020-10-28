@@ -1,0 +1,34 @@
+<div class="main user-show">
+  <div class="container">
+    <div class="user">
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+      <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      <% end %>
+    </div>
+    
+    <ul class="user-tabs">
+      <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
+      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+    </ul>
+    
+    <% @likes.each do |like| %>
+    
+      <% topic = Topic.find_by(id: like.topic_id) %>
+      
+      <div class="topics-index-item">
+        <div class="topic-left">
+          <img src="<%= "/user_images/#{topic.user.image_name}" %>">
+        </div>
+        <div class="topic-right">
+          <div class="topic-user-name">
+            <%= link_to(topic.user.name, "/users/#{topic.user.id}") %>
+          </div>
+          <%= link_to(topic.description, "/topics/#{topic.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
