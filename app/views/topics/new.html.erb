@@ -9,7 +9,11 @@
               <%= message %>
             </div>
           <% end %>
-          <textarea name="description"><%= @topic.description %></textarea>
+          <p>画像</p>
+          <input name="image" type="file">
+          <p>コメント</p>
+          <input name="description" value="<%= @topic.description%>">
+          
           <input type="submit" value="投稿">
         </div>
       </div>
